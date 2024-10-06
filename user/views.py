@@ -4,14 +4,11 @@ from product.models import Favorite
 def dashboard(request):
   user = request.user 
 
-  favorite_items = Favorite.objects.filter(user=user)
+  # favorite_items = Favorite.objects.filter(user=user)
+  print(request.user)
 
 
-  context = {
-    'user_name': user.name, 
-    'favorite_items': favorite_items,
-    
-  }
+  
 
-  return render(request, 'account-infoprofile.html', context)
+  return render(request, 'user/account-infoprofile.html', )
 

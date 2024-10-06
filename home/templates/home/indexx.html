@@ -184,26 +184,26 @@
     <br>
     <br>
 
-
-
+    
+    
+    {%if categories%}
+    {%for category in categories%}
+        <a href="#">
+            <span class="badge bg-danger">از 50000 تومان</span>
+            <img src="{{ category.logo.url}}">
+            <div class="title_category_slider">
+                <h4>{{category.name}}</h4>
+            </div>
+        </a>
+        {%endfor%}
+        {%endif%}
     <div class="container contain-sliderCategoryProduct mb-5">
         <div class="row">
-            <div class="col-12">
-                <div class="owl-carousel slider_category_product " id="slider-category-product">
-                    {%if category%}
-                    {%for category in categories%}
+            <div class="owl-carousel slider_category_product " id="slider-category-product">
+                <div class="col-12">
+                    
                     <div class="item_slider_category_product">
-                        <a href="#">
-                            <span class="badge bg-danger">از 50000 تومان</span>
-                            <img src="{{ category.logo.url}}">
-                            <div class="title_category_slider">
-                                <h4>{{category.name}}</h4>
-                            </div>
-                        </a>
                     </div>
-                    {%endfor%}
-                    {%endif%}
-
                     {% comment %} <div class="item_slider_category_product">
                         <a href="#">
                             <span class="badge bg-primary">از 50000 تومان</span>
@@ -227,10 +227,10 @@
                             <span class="badge bg-warning">از 50000 تومان</span>
                             <img src="images/clothing52.jpg" class="img-fluid" />
                             <div class="title_category_slider">
-                                <h4>لباس</h4> {% endcomment %}
-                            {% comment %} </div> {% endcomment %}
-                        {% comment %} </a> {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
+                                <h4>لباس</h4> 
+                            </div> 
+                        </a>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -245,6 +245,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-6  col-md-4 col-xl-3 mb_col_productNew d-flex justify-content-center">
+                
                 {%if products%}
                 {%for product in products%}
                 <div class="product_cart">
@@ -482,21 +483,25 @@
                 <div class="box_products_special">
                     <div class="header_boxProducts_special d-flex justify-content-between mb-4">
                         <div class="titlebox_products_special">
-                            <h3>محصولات ویژه</h3>
+                            <h3>بیشترین تخفیف ها</h3>
                         </div>
                         <div class="read_more_products_special"><a href="#">نمایش همه <i
                                     class="fas fa-chevron-left"></i></a>
                         </div>
                     </div>
                     <div
-                        class="item_boxProducts_Special d-flex justify-content-between text-right align-items-center mb-3">
+                    class="item_boxProducts_Special d-flex justify-content-between text-right align-items-center mb-3">
+                        {%if mostoffs%}
+                        {%for mostoff in mostoffs%}
                         <div class="title_product_special">
-                            <h4><a href="#">گرمکن طرح دار دو لایه</a></h4>
-                            <span class="box-price">500000 تومان</span>
+                            <h4><a href="#">{{ mostoff.name }}</a></h4>
+                            <span class="box-price">{{ mostoff.price }}تومان</span>
                         </div>
-                        <a href="#"> <img src="images/boloz541.jpg" /></a>
+                        <a href="#"> <img src="{{ mostoff.logo.url}}" /></a>
+                        {%endfor%}
+                        {%endif%}
                     </div>
-                    <div
+                    {% comment %} <div
                         class="item_boxProducts_Special d-flex justify-content-between text-right align-items-center mb-3">
                         <div class="title_product_special">
                             <h4><a href="#">ساعت هوشمند اپل سری 12</a></h4>
@@ -519,7 +524,7 @@
                             <span class="box-price">500000 تومان</span>
                         </div>
                         <a href="#"><img src="images/shoes21.jpg" /></a>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
             <div class="col-12 col-lg-8  ">

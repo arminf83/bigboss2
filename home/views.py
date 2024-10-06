@@ -13,7 +13,8 @@ from django.views.generic import ListView
 from product.models import Product , Category
 
 def home (request):
-    product = Product.objects.order_by('-id')[4:13]
+    mostoff = Product.objects.order_by('-offprice')
+    product = Product.objects.order_by('-id')[3:13]
     category = Category.objects.all()
     newproducts = Product.objects.order_by('-id')[:3]  # دریافت ۳ محصول آخر
     product_1 = newproducts[0] if len(newproducts) > 0 else None
@@ -26,5 +27,6 @@ def home (request):
         'product_1': product_1,
         'product_2': product_2,
         'product_3': product_3,
-        'products': product
+        'products': product,
+        'mostoffs' : mostoff,
         })
