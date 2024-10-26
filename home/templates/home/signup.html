@@ -1,0 +1,56 @@
+{% load static %}
+
+<ul class="cd-switcher">
+    <li><a href="{% url 'home:login'%}">ورود</a></li>
+    {% comment %} <li><a href="{% url 'home:signup'%}">ثبت نام</a></li> {% endcomment %}
+</ul>
+<div id="cd-signup">
+    <!-- sign up form -->
+     
+    <form class="form-modal" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="group mt-0">
+                <h3>نام<h3/>{{form.first_name}}
+                {% comment %} <input required="" class="input" type="text"><span {% endcomment %}
+                    {% comment %} class="highlight"></span><span class="bar"></span>
+                <label class="label" for="date">نام</label></div> {% endcomment %}
+            <!-- Password input-->
+            <div class="group">
+                <h3>نام خانوادگی<h3/>{{form.last_name}}
+                    {% comment %} <input required="" class="input inputpassword" type="password"
+                        name="key"><span class="highlight"></span><span
+                        class="bar"></span>
+                    <label class="label" for="date">رمز عبور</label> {% endcomment %}
+            </div>
+                <h3>ایمیل<h3/>{{form.email}}
+                {% comment %} <input required="" class="input" type="text"><span
+                    class="highlight"></span><span class="bar"></span>
+                <label class="label" for="date">ایمیل</label></div> {% endcomment %}
+            <!-- Text input-->
+            <div class="group">
+                <h3>رمز عبور<h3/>{{form.password}}
+                {% comment %} <input required="" class="input inputpassword" type="password"
+                    name="key"><span class="highlight"></span><span
+                    class="bar"></span>
+                <label class="label" for="date">رمز عبور</label> {% endcomment %}
+            </div>
+            <div class="form-check showPasswork-checkbox mt-3">
+                <input type="checkbox" class="form-check-input ms-1"
+                    id="checkbox-sign-up" onclick="showPassword()">
+                <label class="form-check-label" for="checkbox-sign-up">نمایش
+                    رمز عبور</label>
+            </div>
+            <!-- Button -->
+            <div class="control-group">
+                <label class="control-label" for="confirmsignup"></label>
+                <div class="controls mt-4  mt-sm-5 mb-2">
+                    <button id="confirmsignup" name="confirmsignup"
+                        class="btn-5">ثبت نام</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div> <!-- cd-signup -->

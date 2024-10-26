@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    # 'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -102,6 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # default backend
+    'yourapp.backends.EmailBackend',  # custom email authentication backend
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -134,3 +140,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_ROOT ='media/' #upload image
 
 MEDIA_URL ='/media/'
+
+
+# تنظیمات مربوط به ایمیل (برای ارسال لینک تنظیم مجدد رمز عبور)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'  # آدرس SMTP سرور
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@example.com'
+EMAIL_HOST_PASSWORD = 'your_password'
+

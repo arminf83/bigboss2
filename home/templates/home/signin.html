@@ -1,0 +1,75 @@
+{% load static %}
+<div class="cd-user-modal">
+    <!-- this is the entire modal form, including the background -->
+    <div class="cd-user-modal-container">
+        <!-- this is the container wrapper -->
+        <ul class="cd-switcher">
+            {% comment %} <li><a href="{% url 'home:signin'%}">ورود</a></li> {% endcomment %}
+            <li><a href="{% url 'home:signup'%}">ثبت نام</a></li>
+        </ul>
+        <div id="cd-login">
+            <!-- log in form -->
+            <h1 class="text-center d-none d-sm-block">با استفاده از ایمیل و رمز عبور به حساب
+                خود
+                وارد شوید</h1>
+                
+                <form class="form-modal" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="group">
+                        {% comment %} <input required="" class="input" type="text"><span
+                            class="highlight"></span><span class="bar"></span> {% endcomment %}
+                        {% comment %} <label class="label" for="date">آدرس ایمیل</label> {% endcomment %}
+                        <h3>ایمیل</h3>{{form.email}}
+
+                    </div>
+                    <div class="group">
+                <h3>رمز عبور</h3>{{form.password}}
+
+                        {% comment %} <input required="" class="input inputpassword" type="password"
+                            name="key"><span class="highlight"></span><span
+                            class="bar"></span> {% endcomment %}
+                        {% comment %} <label class="label" for="date">رمز عبور</label> {% endcomment %}
+                    </div>
+                    <div
+                        class="forget_show-hide_password d-block d-sm-flex justify-content-between mt-3  align-items-center">
+                        <div class="form-check showPasswork-checkbox my-3 my-sm-0">
+                            <input type="checkbox" class="form-check-input ms-1"
+                                id="checkbox-login" onclick="showPassword()">
+                            <label class="form-check-label" for="checkbox-login">نمایش
+                                رمز عبور</label>
+                        </div>
+                        <div class="forget_password">
+                            <p class="cd-form-bottom-message"><a href="#0">رمز خود را
+                                    فراموش
+                                    کردید؟</a></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="signin"></label>
+                        <div class="controls  mt-4  mt-sm-5 mb-2">
+                            <button id="signin" name="signin" class="btn-5">ورود</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div> <!-- cd-login -->
+        
+        
+        <div class="modal-footer">
+            <div class="area-socialIcon d-flex justify-content-center w-100">
+                <a href="http://www.facebook.com" class="icon facebook"><span
+                        class="tooltip-site">Facebook</span></a>
+                <a href="http://www.github.com" class="icon instegram"><span
+                        class="tooltip-site">instegram</span></a>
+                <a href="http://www.dribble.com" class="icon linkedin"><span
+                        class="tooltip-site">linkedin</span></a>
+                <a href="http://www.twitter.com" class="icon twitter"><span
+                        class="tooltip-site">Twitter</span></a>
+            </div>
+        </div>
+    </div> <!-- cd-user-modal-container -->
+    </div> <!-- cd-user-modal --> 
+    <div class="border-end "></div>
+    
+

@@ -469,7 +469,7 @@
                             <div class="main-nav d-none d-sm-none mx-2 d-md-block icon_login_user item_widget_navbar">
                                 <ul>
                                     <!-- inser more links here -->
-                                    <li><a class="cd-signin" href="#0"><i class="fal fa-user"></i></a></li>
+                                    <li><a class="cd-signin" href="{% url 'home:login'%}"><i class="fal fa-user"></i></a></li>
                                     <!-- <li><a class="cd-signup" href="#0">Sign up</a></li> -->
                                 </ul>
                             </div>
@@ -556,8 +556,7 @@
                                                     <label class="control-label" for="confirmsignup"></label>
                                                     <div class="controls mt-4  mt-sm-5 mb-2">
                                                         <button id="confirmsignup" name="confirmsignup"
-                                                            class="btn-5">ثبت
-                                                            نام</button>
+                                                            class="btn-5">ثبت نام</button>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -599,7 +598,7 @@
                                         </div>
                                     </div>
                                 </div> <!-- cd-user-modal-container -->
-                            </div> <!-- cd-user-modal -->
+                            </div> <!-- cd-user-modal --> 
                             <div class="border-end "></div>
                             <div class="shooping-cat item_widget_navbar me-4">
                                 <a href="#">

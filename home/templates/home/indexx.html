@@ -1,5 +1,6 @@
 
 {% extends "./base.html" %}
+{% load static %}
 
 {% block content%}
 <main class="content">
@@ -186,32 +187,31 @@
 
     
     
-    {%if categories%}
-    {%for category in categories%}
-        <a href="#">
-            <span class="badge bg-danger">از 50000 تومان</span>
-            <img src="{{ category.logo.url}}">
-            <div class="title_category_slider">
-                <h4>{{category.name}}</h4>
-            </div>
-        </a>
-        {%endfor%}
-        {%endif%}
     <div class="container contain-sliderCategoryProduct mb-5">
         <div class="row">
             <div class="owl-carousel slider_category_product " id="slider-category-product">
                 <div class="col-12">
                     
-                    <div class="item_slider_category_product">
-                    </div>
-                    {% comment %} <div class="item_slider_category_product">
+                    {%if categories%}
+                    {%for category in categories%}
                         <a href="#">
-                            <span class="badge bg-primary">از 50000 تومان</span>
-                            <img src="images/elektronik.jpg" class="img-fluid" />
+                            <span class="badge bg-danger">از 50000 تومان</span>
+                            <img class="class="img-fluid"" src="{{ category.logo.url}}">
                             <div class="title_category_slider">
-                                <h4>الکترونیکی</h4>
+                                <h4>{{category.name}}</h4>
                             </div>
                         </a>
+                        {%endfor%}
+                        {%endif%}
+                    {% comment %} <div class="item_slider_category_product">
+                        <div class="item_slider_category_product">
+                            <a href="#">
+                                <span class="badge bg-primary">از 50000 تومان</span>
+                                <img src="images/elektronik.jpg" class="img-fluid" />
+                                <div class="title_category_slider">
+                                <h4>الکترونیکی</h4>
+                        </div>
+                            </a>
                     </div>
                     <div class="item_slider_category_product">
                         <a href="#">
@@ -228,7 +228,7 @@
                             <img src="images/clothing52.jpg" class="img-fluid" />
                             <div class="title_category_slider">
                                 <h4>لباس</h4> 
-                            </div> 
+                            </div>  
                         </a>
                     </div> {% endcomment %}
                 </div>

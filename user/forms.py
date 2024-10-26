@@ -14,11 +14,14 @@ class SignUpForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ( 'name','email', 'password')
+        fields = ('first_name','last_name','email', 'password')
 
 class LoginForm(forms.Form):
-    email = forms.CharField(label='Username', max_length=30)
+    email = forms.CharField(label='email', max_length=30)
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
     class Meta:
         model = User
+
+class Resetpassform(forms.Form):
+    email= forms.EmailField(label='email', required=True , max_length=30)>
