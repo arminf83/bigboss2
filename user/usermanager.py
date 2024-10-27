@@ -11,7 +11,10 @@ class CustomUsermanager(UserManager):
 
         user = self.model(email= email , **extra_fields)
         user.set_password(password)
+        print(f'user password: {user.password}')
         user.save(using=self.db)
+
+        return user
 
 
 

@@ -15,6 +15,7 @@ class User(AbstractUser):
     last_name=models.CharField(max_length=50)
     born_date=models.DateField(null=True,blank=True)
     email=models.EmailField(max_length=254, unique=True)
+    password=models.CharField(max_length=100)
     gender=models.CharField(max_length=50,choices=GENDER_CHOICES,default='other')
     personal_code=models.CharField(max_length=10 , null=True,blank=True)
     avatar=models.ImageField(upload_to=None,null=True,blank=True)
@@ -25,7 +26,7 @@ class User(AbstractUser):
     objects=CustomUsermanager()
     REQUIRED_FIELDS=[]
     USERNAME_FIELD = 'email'
-    backend='users.backend.EmailBackend'
+    backend='user.backend.EmailBackend'
 
 
 # class Comment(models.Model):
