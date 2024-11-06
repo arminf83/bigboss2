@@ -13,7 +13,8 @@ from django.contrib.auth import login , authenticate
 from product.models import Favorite
 from .forms import SignUpForm , LoginForm , Resetpassform
 from product.models import Favorite
-def signup(request):
+
+def signup_view(request):
     if request.method == 'POST':
         print("ssss")
         form = SignUpForm(request.POST, request.FILES)
@@ -21,18 +22,18 @@ def signup(request):
             user = form.save(commit=False)
             user.save()
             # login(request, user)
-            return redirect('home:login')  
+            return redirect('user:login')  
         else:
             print(form.errors)
     else:
         form = SignUpForm()
-    return render(request, 'home/signup.html', {'form': form})
+    return render(request, 'user/signup.html', {'form': form})
 
-def login(request):
+def login_view(request):
     request.session.set_expiry(3600)
     print(request.method)
     if request.method == 'POST':
-        form = LoginForm(data=request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
@@ -41,10 +42,10 @@ def login(request):
             if user is not None:
                 print("salam")
                 login(request, user)
-                return redirect('home')  
+                return redirect('home:home')  
     else:
         form = LoginForm()
-    return render(request, 'home/signin.html', {'form': form})
+    return render(request, 'user/signin.html', {'form': form})
 
 
 # def password_reset_request(request):
