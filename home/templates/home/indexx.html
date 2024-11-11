@@ -73,7 +73,7 @@
                                     <div class="tab_panel_home text-center text-lg-right pr-lg-4 pr-xl-5">
                                         <h2>{{ product_1.name }}</h2>
                                         <p>{{ product_3.description}}</p>
-                                        <a href="#">قیمت: {{ product_1.price }}</a>
+                                        <a href="{% url 'product:product-detail' product_1.pk %}">قیمت: {{ product_1.price }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     <div class="tab_panel_home text-center text-lg-right pr-lg-4 pr-xl-5">
                                         <h2>{{ product_2.name }}</h2>
                                         <p>{{ product_3.description}}</p>
-                                        <a href="#">قیمت: {{ product_2.price}}</a>
+                                        <a href="{% url 'product:product-detail' product_2.pk %}">قیمت: {{ product_2.price}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     <div class="tab_panel_home text-center text-lg-right pr-lg-4 pr-xl-5">
                                         <h2>{{ product_3.name }}</h2>
                                         <p>{{ product_3.description}}</p>
-                                        <a href="#">قیمت: {{ product_3.price}}</a>
+                                        <a href="{% url 'product:product-detail' product_3.pk %}">قیمت: {{ product_3.price}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -249,9 +249,9 @@
                 {%if products%}
                 {%for product in products%}
                 <div class="product_cart">
-                    <a href="#" class="card_product_img"><img src="{{ product.logo.url}}"></a>
+                    <a href="{% url 'product:product-detail' product.pk %}" class="card_product_img"><img src="{{ product.logo.url}}"></a>
                     <div class="body_card_product text-right">
-                        <a href="#">
+                        <a href="{% url 'product:product-detail' product.pk %}">
                             <h3>{{ product.name }}</h3>
                         </a>
                         <div class="price_card_product"> <del class="ms-1"><span>{{ product.price }}تومان</span></div>
