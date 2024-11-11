@@ -33,29 +33,32 @@ class Product (models.Model):
     def __str__(self):
         return self.name[:50]
 
+
 class Comment(models.Model):
-    STARCHOICE=[
-        (0,0),
-        (1,1),
-        (2,2),
-        (3,3),
-        (4,4),
-        (5,5),
+    STARCHOICE = [
+        (0, '0'),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
     ]
     
-    # gender=models.CharField(max_length=50,choices=GENDER_CHOICES,default='other')
-
-
     text = models.CharField(max_length=50)
-    # star = models.SmallIntegerField( validators=[
-    #         MinValueValidator(0),
-    #         MaxValueValidator(5)])
-    star = models.CharField(choices=STARCHOICE ,max_length=1, default="0")
+    star = models.SmallIntegerField(
+        choices=STARCHOICE,
+        default=0,
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(5)
+        ]
+    )
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
-    sent_date = models.DateTimeField(auto_now_add= True)
-    like = models.PositiveSmallIntegerField()
-    dislike = models.PositiveSmallIntegerField()
+    sent_date = models.DateTimeField(auto_now_add=True)
+    like = models.PositiveSmallIntegerField(default=0)
+    dislike = models.PositiveSmallIntegerField(default=0)
+
     def __str__(self):
         return self.text[:50]
 

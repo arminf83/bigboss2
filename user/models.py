@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser , UserManager
 from .usermanager import CustomUsermanager
-# from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class User(AbstractUser):
@@ -30,26 +30,26 @@ class User(AbstractUser):
 
 
 # class Comment(models.Model):
-#     STARCHOICE=[
-#         (0,0),
-#         (1,1),
-#         (2,2),
-#         (3,3),
-#         (4,4),
-#         (5,5),
+#     STARCHOICE = [
+#         (0, '0'),
+#         (1, '1'),
+#         (2, '2'),
+#         (3, '3'),
+#         (4, '4'),
+#         (5, '5'),
 #     ]
-#     # gender=models.CharField(max_length=50,choices=GENDER_CHOICES,default='other')
-
-
+    
 #     text = models.CharField(max_length=50)
-#     # star = models.SmallIntegerField( validators=[
-#     #         MinValueValidator(0),
-#     #         MaxValueValidator(5)])
-#     star = models.CharField( choices=STARCHOICE , default="0")
+#     star = models.SmallIntegerField(choices=STARCHOICE, default=0, validators=[
+#             MinValueValidator(0),
+#             MaxValueValidator(5)
+#     ])
 #     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
-#     sent_date = models.DateTimeField(auto_now_add= True)
+#     sent_date = models.DateTimeField(auto_now_add=True)
+
 #     def __str__(self):
 #         return self.text[:50]
+
 
 class Bank_user(models.Model):
     User=models.ForeignKey(User, on_delete=models.CASCADE)
