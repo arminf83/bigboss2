@@ -16,7 +16,9 @@ class ProductDetailView(DetailView):
         product = self.object
         context['comments'] = Comment.objects.filter(product=product)
         context['form'] = Commentform()
+        print('\n\n\ncontext: ', context)
         return context
+    
 class CommentCreateView(View):
     def post(self, request, pk):
         product = get_object_or_404(Product, pk=pk)

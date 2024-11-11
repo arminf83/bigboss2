@@ -51,6 +51,7 @@ class Comment(models.Model):
     #         MinValueValidator(0),
     #         MaxValueValidator(5)])
     star = models.CharField(choices=STARCHOICE ,max_length=1, default="0")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     sent_date = models.DateTimeField(auto_now_add= True)
     like = models.PositiveSmallIntegerField()

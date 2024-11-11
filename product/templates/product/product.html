@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 {% load static %}
 
-{% block content%}
+{% block content %}
 
 </div>
 </div>
@@ -23,7 +23,7 @@
     </ol>
 </nav>
 <div class="title-product-single  mb-5">
-    <h1 class="element">کفش ورزشی</h1>
+    <h1 class="element">{{ product.name }}</h1>
 </div>
 <div class="area-details-product-single d-flex mb-3 ">
     <div class="nav nav-pills  flex-column ms-5"
@@ -124,7 +124,7 @@
 <div class="area-price-singleProduct d-flex">
     <span class="ms-2"> قیمت: </span>
     <del class="price-discount ms-3 mb-4">15000000تومان</del>
-    <p class="price">12000000 تومان</p>
+    <p class="price">{{ product.price }} تومان</p>
 </div>
 <div class="font-size-sm pb-1 mb-2">
     <span class="font-weight-medium text-heading">انتخاب رنگ - </span>
