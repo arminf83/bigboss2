@@ -34,9 +34,11 @@
                                     <div class="title_tab mx-3 mx-lg-2 mx-xl-3">{{ product_1.name }}</div>
                                     <i class="fas fa-chevron-left"></i>
                                 </div>
-                            </div>
-                        </button>.product_cartx align-items-center"
-                                <img src="{{ product_2.logo.url}}">
+                            </div>                        
+                        </button>
+                        {% if product_3 %}
+                        <button class="nav-link my-2" id="v-pills-profile-tab" data-bs-toggle="pill">
+                            <img src="{{ product_2.logo.url}}">
                                 <div class="title_tab_product d-flex align-items-center">
                                     <div class="title_tab mx-3 mx-lg-2 mx-xl-3">{{ product_2.name }}</div>
                                     <i class="fas fa-chevron-left"></i>
@@ -255,9 +257,9 @@
                 {%if products%}
                 {%for product in products%}
                 <div class="product_cart">
-                    <a href="#" class="card_product_img"><img src="{{ product.logo.url}}"></a>
+                    <a href="{% url 'product:product-detail' product.id%}" class="card_product_img"><img src="{{ product.logo.url}}"></a>
                     <div class="body_card_product text-right">
-                        <a href="#">
+                        <a href="{% url 'product:product-detail' product.id%}">
                             <h3>{{ product.name }}</h3>
                         </a>
                         <div class="price_card_product"> <del class="ms-1"><span>{{ product.price }}تومان</span></div>
@@ -271,9 +273,9 @@
                             <span class="star-icon"><i class="far fa-star"></i></span>
                         </div>
                         <div class="area_icon_cardFooter d-flex align-items-center">
-                            <a href="#" class="border-left"><i class="fal fa-cart-plus"></i><span
+                            <a href="{% url 'product:product-detail' product.id%}" class="border-left"><i class="fal fa-cart-plus"></i><span
                                     class="tooltip-site"> سبد خرید </span></a>
-                            <a href="#"><i class="fal fa-heart"></i><span class="tooltip-site"> علاقه مندی
+                            <a href="{% url 'product:product-detail' product.id%}"><i class="fal fa-heart"></i><span class="tooltip-site"> علاقه مندی
                                     ها</span></a>
                         </div>
                     </div>
